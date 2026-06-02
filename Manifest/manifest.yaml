@@ -134,7 +134,7 @@ spec:
     spec:
       containers:
       - name: bankapp
-        image: alhobab/bankapp:v6
+        image: alhobab/bankapp:v7
         resources:
           requests:
             memory: "256Mi"
