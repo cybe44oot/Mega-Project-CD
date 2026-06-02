@@ -4,15 +4,16 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git branch: 'main', credentialsId: 'git', url: 'https://github.com/jaiswaladi246/Mega-Project-CD.git'
+                git branch: 'main',
+                    url: 'https://github.com/cybe44oot/Mega-Project-CD.git'
             }
         }
         
         stage('Kubernetes Deployment') {
             steps {
-                withKubeConfig(caCertificate: '', clusterName: 'devopsshack-cluster', contextName: '', credentialsId: 'k8-token', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://952FB702C508F688D873376083B31DF5.gr7.ap-south-1.eks.amazonaws.com') {
+                withKubeConfig(caCertificate: '', clusterName: 'https://A385AC9BFF829E9144AA7129151C1092.gr7.eu-north-1.eks.amazonaws.com', contextName: '', credentialsId: 'k8s-token', namespace: 'webapps', restrictKubeConfigAccess: false, serverUrl: 'https://A385AC9BFF829E9144AA7129151C1092.gr7.eu-north-1.eks.amazonaws.com') {
                     sh "kubectl apply -f Manifest/manifest.yaml -n webapps"
-                    sh "kubectl apply -f Manifest/HPA.yaml "
+                    sh "kubectl apply -f Manifest/HPA.yaml"
                     sleep 30
                     sh "kubectl get pods -n webapps"
                     sh "kubectl get service -n webapps"
