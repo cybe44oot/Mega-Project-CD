@@ -23,4 +23,4 @@ spec:
   tls:
     - hosts:
         - www.alhobab.freedev.app
-      secretName: shackverse-co-tl
+      secretName: alhobab
