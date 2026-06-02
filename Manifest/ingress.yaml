@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: www.alhobab.freedev.app
+    - host: www.alhobab.site
       http:
         paths:
           - path: /
@@ -22,5 +22,5 @@ spec:
                   number: 80
   tls:
     - hosts:
-        - www.alhobab.freedev.app
+        - www.alhobab.site
       secretName: alhobab
